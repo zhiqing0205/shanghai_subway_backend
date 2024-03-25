@@ -31,7 +31,7 @@ class RunningData(models.Model):
         verbose_name = '运行数据'
 
     id = models.AutoField(primary_key=True, auto_created=True, verbose_name='编号')
-    alias = models.CharField(max_length=50, verbose_name='别名')
+    alias = models.CharField(max_length=50, verbose_name='车厢号')
     line_name = models.CharField(max_length=50, verbose_name='线路名称')
     timestamp = models.DateTimeField(verbose_name='时间戳')
     write_time = models.DateTimeField(verbose_name='写入时间')
@@ -69,7 +69,7 @@ class IteData(models.Model):
         verbose_name = 'ite数据'
 
     id = models.AutoField(primary_key=True, auto_created=True, verbose_name='编号')
-    alias = models.CharField(max_length=50, verbose_name='别名')
+    alias = models.CharField(max_length=50, verbose_name='车厢号')
     timestamp = models.DateTimeField(verbose_name='时间戳')
     write_time = models.DateTimeField(verbose_name='写入时间')
     wifi_time = models.DateTimeField(verbose_name='wifi时间')
@@ -83,7 +83,7 @@ class IteData(models.Model):
     cellid = models.IntegerField(verbose_name='cellid')
     cfo = models.FloatField(verbose_name='cfo', null=True, blank=True)
     rssi = models.FloatField(verbose_name='总功率')
-    rsrp = models.FloatField(verbose_name='接收功率')
+    rsrp = models.FloatField(verbose_name='信号强度')
     cir = models.FloatField(verbose_name='cir', null=True, blank=True)
     rfGain = models.FloatField(verbose_name='rfGain', null=True, blank=True)
     agc_cnt = models.IntegerField(verbose_name='agc_cnt')
@@ -147,7 +147,7 @@ class WifiData(models.Model):
         verbose_name = 'wifi数据'
 
     id = models.AutoField(primary_key=True, auto_created=True, verbose_name='编号')
-    alias = models.CharField(max_length=50, verbose_name='别名')
+    alias = models.CharField(max_length=50, verbose_name='车厢号')
     timestamp = models.DateTimeField(verbose_name='时间戳')
     write_time = models.DateTimeField(verbose_name='写入时间')
     wifi_time = models.DateTimeField(verbose_name='wifi时间')
