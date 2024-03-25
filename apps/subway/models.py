@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Station(models):
+class Station(models.Model):
     class Meta:
         db_table = 'tb_station'
         verbose_name = '站点'
@@ -25,7 +25,7 @@ class Station(models):
         }
 
 
-class RunningData(models):
+class RunningData(models.Model):
     class Meta:
         db_table = 'tb_running_data'
         verbose_name = '运行数据'
@@ -63,7 +63,7 @@ class RunningData(models):
         }
 
 
-class IteData(models):
+class IteData(models.Model):
     class Meta:
         db_table = 'tb_ite_data'
         verbose_name = 'ite数据'
@@ -76,12 +76,12 @@ class IteData(models):
     freq = models.IntegerField(verbose_name='频率')
     gain = models.IntegerField(verbose_name='增益')
     nummeasurements = models.IntegerField(verbose_name='测量次数')
-    fn = models.IntegerField(verbose_name='fn')
+    fn = models.IntegerField(verbose_name='fn', null=True, blank=True)
     m_type = models.CharField(max_length=50, verbose_name='m_type')
     frequencyid = models.IntegerField(verbose_name='frequencyid', null=True, blank=True)
     timeoffset = models.IntegerField(verbose_name='timeoffset')
     cellid = models.IntegerField(verbose_name='cellid')
-    cfo = models.FloatField(verbose_name='cfo')
+    cfo = models.FloatField(verbose_name='cfo', null=True, blank=True)
     rssi = models.FloatField(verbose_name='总功率')
     rsrp = models.FloatField(verbose_name='接收功率')
     cir = models.FloatField(verbose_name='cir', null=True, blank=True)
@@ -97,7 +97,7 @@ class IteData(models):
     gps_time = models.DateTimeField(verbose_name='gps_time', null=True, blank=True)
     longitude = models.FloatField(verbose_name='经度')
     latitude = models.FloatField(verbose_name='纬度')
-    ros_time = models.DateTimeField(verbose_name='ros_time')
+    ros_time = models.DateTimeField(verbose_name='ros_time', null=True, blank=True)
     cnt = models.IntegerField(verbose_name='cnt')
     trans_time = models.DateTimeField(verbose_name='trans_time')
 
@@ -141,7 +141,7 @@ class IteData(models):
         }
 
 
-class WifiData(models):
+class WifiData(models.Model):
     class Meta:
         db_table = 'tb_wifi_data'
         verbose_name = 'wifi数据'
