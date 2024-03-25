@@ -61,7 +61,7 @@ class RunningData(models.Model):
             'station_from': self.station_from,
             'station_to': self.station_to,
             'direction': self.direction,
-            'departure': self.depart
+            'departure': self.departure
         }
 
 
