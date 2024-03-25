@@ -16,9 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from apps.subway import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('get_all_data/', views.get_all_data)
 ]
 
 admin.site.site_header = '上海地铁可视化后台管理系统'
