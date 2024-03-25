@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'simpleui',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -128,3 +129,17 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SIMPLEUI_DEFAULT_THEME = 'light.css'
+
+SIMPLEUI_HOME_INFO = False
+
+SIMPLEUI_ANALYSIS = False
+
+SIMPLEUI_ICON = {
+    '地铁数据管理': 'fas fa-train-subway',
+    '站点数据管理': 'fas fa-sitemap',
+    'Wifi数据管理': 'fas fa-wifi',
+    '运行数据管理': 'fas fa-person-running',
+    'Ite数据管理': 'fas fa-grip-lines',
+}

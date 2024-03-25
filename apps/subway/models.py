@@ -5,6 +5,7 @@ class Station(models.Model):
     class Meta:
         db_table = 'tb_station'
         verbose_name = '站点'
+        verbose_name_plural = '站点数据管理'
 
     id = models.AutoField(primary_key=True, auto_created=True, verbose_name='编号')
     name = models.CharField(max_length=50, verbose_name='名称')
@@ -29,6 +30,7 @@ class RunningData(models.Model):
     class Meta:
         db_table = 'tb_running_data'
         verbose_name = '运行数据'
+        verbose_name_plural = '运行数据管理'
 
     id = models.AutoField(primary_key=True, auto_created=True, verbose_name='编号')
     alias = models.CharField(max_length=50, verbose_name='车厢号')
@@ -67,6 +69,7 @@ class IteData(models.Model):
     class Meta:
         db_table = 'tb_ite_data'
         verbose_name = 'ite数据'
+        verbose_name_plural = 'ite数据管理'
 
     id = models.AutoField(primary_key=True, auto_created=True, verbose_name='编号')
     alias = models.CharField(max_length=50, verbose_name='车厢号')
@@ -145,6 +148,7 @@ class WifiData(models.Model):
     class Meta:
         db_table = 'tb_wifi_data'
         verbose_name = 'wifi数据'
+        verbose_name_plural = 'wifi数据管理'
 
     id = models.AutoField(primary_key=True, auto_created=True, verbose_name='编号')
     alias = models.CharField(max_length=50, verbose_name='车厢号')
