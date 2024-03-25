@@ -140,7 +140,8 @@ class IteData(models.Model):
             'latitude': self.latitude,
             'ros_time': self.ros_time,
             'cnt': self.cnt,
-            'trans_time': self.trans_time
+            'trans_time': self.trans_time,
+            'type': 'B' if self.freq > 1800000000 else 'A'
         }
 
 
