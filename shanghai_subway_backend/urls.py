@@ -23,7 +23,8 @@ urlpatterns = [
     path('get_all_data/', views.get_all_data)
 ]
 
-admin.site.site_header = '上海地铁可视化后台管理系统'
-admin.site.site_title = '上海地铁可视化后台管理系统'
-admin.site.index_title = '上海地铁可视化后台管理系统'
+title = '车地通信无线智能检测后台'
+admin.site.site_header = title
+admin.site.site_title = title
+admin.site.index_title = title
 
