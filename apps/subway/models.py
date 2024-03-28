@@ -22,7 +22,11 @@ class Station(models.Model):
             'name': self.name,
             'longitude': self.longitude,
             'latitude': self.latitude,
-            'line_name': self.line_name
+            'line_name': self.line_name,
+            'position': {
+                'lng': self.longitude,
+                'lat': self.latitude
+            }
         }
 
 
@@ -61,7 +65,13 @@ class RunningData(models.Model):
             'station_from': self.station_from,
             'station_to': self.station_to,
             'direction': self.direction,
-            'departure': self.departure
+            'departure': self.departure,
+            'status': self.status,
+            'speed': self.speed,
+            'position': {
+                'lng': self.longitude,
+                'lat': self.latitude
+            }
         }
 
 
