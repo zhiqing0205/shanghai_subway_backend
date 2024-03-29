@@ -149,3 +149,9 @@ SIMPLEUI_ICON = {
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_HEADERS = ('*')
+
+station_lng_diff = 0.006506
+station_lat_diff = 0.005942
+
+running_lng_diff = 0.010721
+running_lat_diff = 0.0040875
