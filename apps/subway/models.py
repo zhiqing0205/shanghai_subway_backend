@@ -1,5 +1,7 @@
 from django.db import models
 
+from shanghai_subway_backend.settings import station_lng_diff, station_lat_diff, running_lng_diff, running_lat_diff
+
 
 class Station(models.Model):
     class Meta:
@@ -24,8 +26,8 @@ class Station(models.Model):
             'latitude': self.latitude,
             'line_name': self.line_name,
             'position': {
-                'lng': self.longitude,
-                'lat': self.latitude
+                'lng': self.longitude + station_lng_diff,
+                'lat': self.latitude + station_lat_diff
             }
         }
 
@@ -69,8 +71,8 @@ class RunningData(models.Model):
             'status': self.status,
             'speed': self.speed,
             'position': {
-                'lng': self.longitude,
-                'lat': self.latitude
+                'lng': self.longitude + running_lng_diff,
+                'lat': self.latitude + running_lat_diff
             }
         }
 
@@ -200,3 +202,61 @@ class WifiData(models.Model):
             'cnt': self.cnt,
             'trans_time': self.trans_time
         }
+
+
+class SpectrumData(models.Model):
+    class Meta:
+        db_table = 'tb_spectrum_data'
+        verbose_name = '光谱数据'
+        verbose_name_plural = '光谱数据管理'
+
+    id = models.AutoField(primary_key=True, auto_created=True, verbose_name='编号')
+    alias = models.CharField(max_length=50, verbose_name='车厢号')
+    timestamp = models.DateTimeField(verbose_name='时间戳')
+    write_time = models.DateTimeField(verbose_name='写入时间')
+    freq = models.IntegerField(verbose_name='频率')
+    gain = models.IntegerField(verbose_name='增益', null=True, blank=True)
+    red = models.IntegerField(verbose_name='红色', null=True, blank=True)
+    blue = models.IntegerField(verbose_name='蓝色', null=True, blank=True)
+    bin = models.IntegerField(verbose_name='bin')
+    fft = models.IntegerField(verbose_name='fft', null=True, blank=True)
+    channel = models.IntegerField(verbose_name='channel', null=True, blank=True)
+    wifi_time = models.DateTimeField(verbose_name='wifi时间')
+    gps_time = models.DateTimeField(verbose_name='gps时间')
+    longitude = models.FloatField(verbose_name='经度')
+    latitude = models.FloatField(verbose_name='纬度')
+    rssi = models.IntegerField(verbose_name='rssi')
+    normal_alarm_state = models.IntegerField(verbose_name='正常报警状态')
+    strong_alarm_state = models.IntegerField(verbose_name='强报警状态')
+    ros_time = models.DateTimeField(verbose_name='ros_time', null=True, blank=True)
+    cnt = models.IntegerField(verbose_name='cnt', null=True, blank=True)
+    trans_time = models.DateTimeField(verbose_name='trans_time', null=True, blank=True)
+
+    def __str__(self):
+        return self.alias
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'alias': self.alias,
+            'timestamp': self.timestamp,
+            'write_time': self.write_time,
+            'freq': self.freq,
+            'gain': self.gain,
+            'red': self.red,
+            'blue': self.blue,
+            'bin': self.bin,
+            'fft': self.fft,
+            'channel': self.channel,
+            'wifi_time': self.wifi_time,
+            'gps_time': self.gps_time,
+            'longitude': self.longitude,
+            'latitude': self.latitude,
+            'rssi': self.rssi,
+            'normal_alarm_state': self.normal_alarm_state,
+            'strong_alarm_state': self.strong_alarm_state,
+            'ros_time': self.ros_time,
+            'cnt': self.cnt,
+            'trans_time': self.trans_time
+        }
+

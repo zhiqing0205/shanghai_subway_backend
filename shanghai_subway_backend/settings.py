@@ -143,6 +143,7 @@ SIMPLEUI_ICON = {
     'Wifi数据管理': 'fas fa-wifi',
     '运行数据管理': 'fas fa-person-running',
     'Ite数据管理': 'fas fa-grip-lines',
+    '光谱数据管理': 'fas fa-chart-area'
 }
 
 CORS_ALLOW_CREDENTIALS = True

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Station, RunningData, IteData, WifiData
+from .models import Station, RunningData, IteData, WifiData, SpectrumData
 
 
 class StationAdmin(admin.ModelAdmin):
@@ -12,8 +12,8 @@ class StationAdmin(admin.ModelAdmin):
 
 class RunningDataAdmin(admin.ModelAdmin):
     list_display = (
-    'id', 'alias', 'line_name', 'timestamp', 'write_time', 'longitude', 'latitude', 'station_from', 'station_to',
-    'direction', 'departure', 'status', 'speed')
+        'id', 'alias', 'line_name', 'timestamp', 'write_time', 'longitude', 'latitude', 'station_from', 'station_to',
+        'direction', 'departure', 'status', 'speed')
     search_fields = list_display
     list_filter = ('line_name', 'status', 'station_from', 'station_to', 'direction', 'departure', 'status')
     ordering = ('id',)
@@ -31,7 +31,15 @@ class WifiDataAdmin(admin.ModelAdmin):
     ordering = ('id',)
 
 
+class SpectrumDataAdmin(admin.ModelAdmin):
+    list_display = ('id', 'alias', 'timestamp', 'freq', 'gain', 'red', 'blue', 'fft', 'channel', 'rssi',
+                    'normal_alarm_state', 'strong_alarm_state')
+    search_fields = list_display
+    ordering = ('id',)
+
+
 admin.site.register(Station, StationAdmin)
 admin.site.register(RunningData, RunningDataAdmin)
 admin.site.register(IteData, IteDataAdmin)
 admin.site.register(WifiData, WifiDataAdmin)
+admin.site.register(SpectrumData, SpectrumDataAdmin)
