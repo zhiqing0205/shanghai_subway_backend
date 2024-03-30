@@ -153,5 +153,7 @@ CORS_ALLOW_HEADERS = ('*')
 station_lng_diff = 0.006506
 station_lat_diff = 0.005942
 
-running_lng_diff = 0.010721
-running_lat_diff = 0.0040875
+running_lng_diff = 0.0119
+running_lat_diff = 0.00363
+# running_lng_diff = -0.0012
+# running_lat_diff = -0.0006
